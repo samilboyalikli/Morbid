@@ -1,0 +1,23 @@
+{% load static %}
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <title>Vücut Kitle Endeksi</title>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+        <div class="circle2"></div>
+        <form method="post" action="{% url 'form' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="search" name="kilo" id="kilo" placeholder="Kilonuz" autocomplete="off">
+            <input type="search" name="boy" id="boy" placeholder="Boyunuz" autocomplete="off">
+            <input type="submit" value="Hesapla">
+        </form>
+    </div>
+</body>
+</html>

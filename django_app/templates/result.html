@@ -1,0 +1,37 @@
+{% load static %}
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'result.css' %}">
+    <title>Vücut Kitle Endeksi</title>
+</head>
+<body>
+    <div class="container">
+        <div id="endeks_">
+                <table id="table" border="1">
+                    <tr>
+                        <td>Boy Kilo Endeksiniz</td>
+                        <td>{{ indeks }}</td>
+                    </tr>
+                    <tr>
+                        <td>Bulunduğunuz Kategori</td>
+                        <td>{{ kategori }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ min_max }} Normal Kilonuz</td>
+                        <td>{{ normal_kilo }}</td>
+                    </tr>
+                    <tr id="en_azindan">
+                        <td colspan="3">{{ cumle_giris }}{{ advice }}{{ cumle_orta }}{{ yuklem }}</td>
+                    </tr>
+                </table><br>
+                <form method="post" action="{% url 'redirecting' %}">
+                {% csrf_token %}
+                    <input type="submit" value="Yeni">
+                </form>
+        </div>
+    </div>
+</body>
+</html>
